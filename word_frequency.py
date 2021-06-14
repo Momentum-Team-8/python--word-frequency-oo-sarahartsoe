@@ -1,20 +1,25 @@
+from pathlib import WindowsPath
+
+
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has',
     'he', 'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to',
     'were', 'will', 'with'
 ]
 
-
 class FileReader:
     def __init__(self, filename):
-        pass
+        self.filename = filename
 
     def read_contents(self):
         """
         This should read all the contents of the file
         and return them as one string.
         """
-        raise NotImplementedError("FileReader.read_contents")
+        with open(self.filename) as text_file:
+            return text_file.read()
+        
+
 
 
 class WordList:
